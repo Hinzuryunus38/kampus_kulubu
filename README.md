@@ -1,60 +1,85 @@
-# Kampüs Kulübü — Üç sayfalık statik site
+# Kampüs Fotoğraf Kulübü
 
-BPR201 - İnternet Tabanlı Programlama
-Dr. Öğr. Üyesi Serkan AKSU
-http://www.serkanaksu.net
-aksu@bartin.edu.tr
+BPR201 - İnternet Tabanlı Programlama | Haftalık Proje Ödevi 1
 
-## İlk kez çalıştırma
-1. GitHub hesabında `kampus-kulubu` adlı repository oluştur. Add README seçeneğini aç.
-2. ZIP'i aç. `index.html`, `etkinlikler.html`, `hakkimizda.html`, `style.css` ve `README.md` dosyalarını repository köküne yükle (Add file / Upload files). ZIP dosyasının kendisini yükleme.
-3. Commit changes ile kaydet.
-4. Code / Codespaces / Create codespace on main seç. Kurulumun bitmesini bekle.
-5. Terminal / New Terminal aç. Aşağıdaki komutu çalıştır:
+**Öğrenci:** Yunus Emre Baran
+**Öğrenci No:** 25015221011
+**Bölüm:** Bilgisayar Programcılığı, Bartın Üniversitesi
+**Repository:** https://github.com/Hinzuryunus38/kampus_kulubu
+
+## Projenin amacı
+
+Kampüs Fotoğraf Kulübü, fotoğraf öğrenmek ve kampüsü karelerle belgelemek isteyen öğrenciler için hazırlanmış üç sayfalık statik bir web sitesidir. Sitenin amacı kulüp etkinliklerini duyurmak ve etkinlikleri başlığa göre aranabilir hale getirmektir.
+
+Site; HTML, CSS ve JavaScript ile hazırlanmıştır. Backend, database, API ve kullanıcı girişi içermez. Etkinlik kayıtları HTML içindedir, arama tarayıcıda JavaScript ile çalışır. Geliştirme sürecinde GitHub Codespaces ve GitHub Copilot desteği kullanılmıştır.
+
+## Sayfalar
+
+| Dosya | Açıklama |
+|---|---|
+| `index.html` | Ana Sayfa: site başlığı, kısa tanıtım ve diğer sayfalara yönlendirme |
+| `etkinlikler.html` | 5 özgün etkinlik kartı (başlık, tarih, yer, açıklama) ve başlığa göre arama |
+| `hakkimizda.html` | Kulübün tanıtımı ve sitenin amacı |
+| `style.css` | Üç sayfanın ortak görünümü, mobil uyum ve odak (focus) stilleri |
+| `script.js` | Arama, sayaç, sonuç bulunamadı mesajı ve Temizle düğmesi |
+
+Üç sayfada da ortak navigation menüsü bulunur ve bağlantılar birbirine çalışır.
+
+## Etkinlikler
+
+1. Kamera Temelleri Atölyesi (12 Kasım, 14.00, Sanat Atölyesi)
+2. Portre Fotoğrafçılığı Saati (19 Kasım, 14.00, Kütüphane Bahçesi)
+3. Sonbahar Kampüs Fotoğraf Yürüyüşü (26 Kasım, 14.00, Kampüs Bahçesi)
+4. Fotoğraf Düzenleme Atölyesi (3 Aralık, 14.00, Bilgisayar Laboratuvarı)
+5. Kulüp Fotoğraf Sergisi (10 Aralık, 14.00, Fakülte Fuaye Alanı)
+
+## Arama özelliği
+
+- Kullanıcı yazdıkça eşleşen etkinlik kartları gösterilir.
+- Büyük/küçük harf farkı ve baştaki/sondaki boşluklar sonucu etkilemez (Türkçe karakterler için `toLocaleLowerCase("tr-TR")`).
+- Görünen etkinlik sayısı yazılır: "X etkinlik gösteriliyor."
+- Eşleşme yoksa "Aramanıza uygun etkinlik bulunamadı." mesajı görünür.
+- **Temizle** düğmesi aramayı sıfırlar, tüm etkinlikleri geri getirir ve odağı arama alanına verir.
+- Arama alanının label öğesi vardır; site dar ekranda (390 px) yatay taşma olmadan kullanılır.
+
+## Çalıştırma adımları
+
+1. Repository'yi GitHub Codespaces'te aç (Code → Codespaces → Create codespace on main).
+2. Terminalde proje klasöründe şu komutu çalıştır:
 
 ```bash
 python3 -m http.server 8000 --bind 0.0.0.0
 ```
 
-6. Ports panelinde 8000 portunu bul. Gerekirse Forward a Port ile 8000 ekle. Open in Browser seç. Port Private kalabilir.
-7. Ana Sayfa, Etkinlikler ve Hakkımızda bağlantılarını dene.
-8. HTML/CSS değişikliğinden sonra dosyayı kaydet (Ctrl+S veya Mac'te Cmd+S), browser sayfasını yenile.
+3. Ports panelinde 8000 portunu bul ve **Open in Browser** ile aç.
+4. Ana Sayfa, Etkinlikler ve Hakkımızda bağlantılarını dene.
+5. Dosyalarda değişiklik yaptıktan sonra kaydet (Ctrl+S) ve tarayıcıyı yenile.
 
-Codespaces varsayılan ortamında Python bulunur. `python3 --version` ile kontrol et. Bu projede npm, framework, database veya uygulama kurulumu gerekmez. Python yalnızca hazır dosyaları sunar. Yerel bilgisayarda HTML dosyalarını çift tıklayarak da açabilirsin.
+Yerel bilgisayarda `index.html` dosyasına çift tıklayarak da açılabilir. Kurulum, npm veya framework gerekmez.
 
-## Dosyalar
-- index.html: Ana Sayfa
-- etkinlikler.html: Üç örnek etkinlik
-- hakkimizda.html: Proje tanıtımı
-- style.css: Ortak renkler, sayfa düzeni ve mobil görünüm
+## Belgeler ve kanıtlar
 
-## Copilot alıştırması
-Önce dosyayı aç. Chat içinde şunu sor:
+- [AI_NOTLARI.md](AI_NOTLARI.md): Kullanılan prompt'lar, AI önerisinin değerlendirilmesi ve kod açıklamaları
+- [TEST_NOTLARI.md](TEST_NOTLARI.md): Altı testin beklenen ve gerçekleşen sonuçları
+- Ekran görüntüleri (`ekran-goruntuleri/` klasörü):
+  - `01-normal-arama.png`: Normal arama
+  - `02-bos-sonuc.png`: Sonuç bulunamadı durumu
+  - `03-mobil-390px.png`: 390 px mobil görünüm
 
-> HTML öğrenmeye yeni başladım. index.html içindeki nav bölümünü satır satır Türkçe açıkla. Kodu değiştirme. href ve aria-current terimlerinin görevini anlat.
+## Dosya yapısı
 
-Sonra şu küçük değişikliği iste:
+```
+index.html
+etkinlikler.html
+hakkimizda.html
+style.css
+script.js
+README.md
+AI_NOTLARI.md
+TEST_NOTLARI.md
+ekran-goruntuleri/
+```
 
-> Yalnızca etkinlikler.html dosyasına mevcut article yapısını kullanarak bir GitHub Atölyesi ekle. Tarihi 3 Aralık, saati 14.00 ve yeri Bilgisayar Laboratuvarı olsun. Yeni paket veya JavaScript ekleme. Değişen satırları açıkla.
+## Not
 
-Öneriyi oku. Dört etkinliğin göründüğünü ve diğer sayfaların açıldığını kontrol et. AI_NOTLARI.md dosyasına hangi yardımı aldığını ve nasıl test ettiğini yaz. Copilot erişimin yoksa bir article bloğunu kendin çoğalt.
-
-## Kaydet ve GitHub'a gönder
-Source Control bölümünde diff'i incele. İlgili dosyaları + ile stage et. Anlamlı mesajla Commit yap. Ardından Sync Changes veya Push seç. GitHub repository sayfasında yeni commit'i doğrula.
-
-## Dersi bitirme
-Terminalde Ctrl+C ile web server'ı durdur. https://github.com/codespaces sayfasında ortamın ... menüsünden Stop codespace seç. Sekmeyi kapatmak yeterli değildir. Stop depolamayı silmez. Delete öncesinde dosyaların GitHub'a push edildiğini kontrol et.
-
-## Sık sorunlar
-- Directory listing: index.html yanlış klasörde. Dosyaları repository köküne taşı veya doğru klasörde server'ı başlat.
-- Address already in use: Önce çalışan server'ı Ctrl+C ile kapat. Gerekirse 8001 kullan ve Ports'ta 8001 aç.
-- CSS görünmüyor: Dosya adı style.css ve link yolu aynı olmalı. Büyük/küçük harfe dikkat et.
-- Copilot yanıt vermiyor: Hesabı, planı ve kotayı kontrol et. Proje AI olmadan da çalışır.
-
-## Kaynaklar
-https://github.com/signup
-https://github.com/settings/education/benefits
-https://docs.github.com/en/codespaces/quickstart
-https://docs.github.com/en/codespaces/reference/using-github-copilot-in-github-codespaces
-
-Bu proje eğitim örneğidir. Tarihler ve etkinlikler kurgudur. Kullanıcı girişi, form gönderimi ve database içermez.
+Bu proje eğitim amaçlıdır. Tarihler ve etkinlikler kurgudur. Kullanıcı girişi, form gönderimi ve database içermez.
